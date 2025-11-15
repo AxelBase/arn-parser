@@ -1,0 +1,375 @@
+/*
+ * =========================================
+ * APP.CSS - AxelBase Theme
+ * =========================================
+ * Main Color: Signal Violet (#924E7D)
+ * Secondary Color: White (#FFFFFF)
+ */
+
+/* --- 1. CSS Variables --- */
+:root {
+  --signal-violet: #924e7d;
+  --signal-violet-dark: #7a4166; /* For hover states */
+  --white: #ffffff;
+  --light-bg: #fdfbff; /* A very light tint of violet */
+  --text-color: #212529; /* Bootstrap's default dark */
+  --text-light: #495057;
+  --border-color: #dee2e6;
+  --nav-height: 70px;
+  --footer-height: 50px;
+}
+
+/* --- 2. Global Styles --- */
+html {
+  /* Enables smooth scrolling for anchor links (e.g., /#about) */
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--light-bg);
+  color: var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  /* Add padding to prevent content from being hidden by fixed nav/footer */
+  padding-top: var(--nav-height);
+  padding-bottom: var(--footer-height);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main content wrapper */
+main.container {
+  flex: 1; /* Ensures it takes up available space */
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  max-width: 960px; /* Limit width for readability */
+}
+
+/* Set scroll-margin for all sections with an ID */
+section[id] {
+  scroll-margin-top: calc(
+    var(--nav-height) + 1rem
+  ); /* Offset for sticky nav */
+}
+
+/* --- 3. Navbar Styles --- */
+.navbar {
+  background-color: var(--white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: fixed; /* Changed to fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  z-index: 1020;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px; /* Consistent max-width */
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.navbar-brand-logo {
+  height: 40px;
+  width: 40px;
+  transition: transform 0.3s ease;
+}
+
+.navbar-brand-logo:hover {
+  transform: scale(1.1) rotate(-10deg);
+}
+
+.navbar-brand-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--signal-violet);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.navbar-brand-text:hover {
+  color: var(--signal-violet-dark);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link a:hover {
+  color: var(--signal-violet);
+}
+
+/* Animated underline effect */
+.nav-link a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--signal-violet);
+  transition: width 0.3s ease;
+}
+
+.nav-link a:hover::after {
+  width: 100%;
+}
+
+/* --- 4. "Buy Me a Coffee" Button Styles --- */
+.bmac-item {
+  position: relative;
+  margin-left: 1rem; /* Spacing from brand */
+}
+
+.bmac-button {
+  background-color: #ffdd00; /* Classic BMAC yellow */
+  color: #000000;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bmac-button svg {
+  width: 20px;
+  height: 20px;
+  fill: #000000;
+}
+
+.bmac-button:hover {
+  background-color: #fbc531;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bmac-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 10px;
+  background-color: var(--white);
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  z-index: 1030;
+  width: 100px; /* Fixed width */
+}
+
+.bmac-dropdown a {
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+  text-align: center;
+  font-weight: 500;
+}
+
+.bmac-dropdown a:hover {
+  background-color: var(--signal-violet);
+  color: var(--white);
+}
+
+/* --- 5. Footer Styles --- */
+.footer {
+  background-color: #333; /* Dark, professional footer */
+  color: #ccc;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--footer-height);
+  z-index: 1020;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  max-width: 1200px;
+  font-size: 0.9rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+  text-decoration: underline;
+}
+
+/* --- 6. Bootstrap Component Overrides --- */
+
+/* Headings */
+h1 {
+  color: var(--signal-violet);
+  font-weight: 700;
+}
+
+h2 {
+  color: var(--signal-violet-dark);
+  font-weight: 600;
+  border-bottom: 2px solid var(--signal-violet-dark);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Buttons */
+.btn {
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-radius: 0.375rem; /* Bootstrap's default */
+  font-weight: 500;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+  background-color: var(--signal-violet);
+  border-color: var(--signal-violet);
+  color: var(--white);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--signal-violet-dark);
+  border-color: var(--signal-violet-dark);
+  color: var(--white);
+}
+
+.btn-success {
+  /* Using a complementary green */
+  background-color: #4e927d;
+  border-color: #4e927d;
+  color: var(--white);
+}
+
+.btn-success:hover,
+.btn-success:focus {
+  background-color: #3e7564;
+  border-color: #3e7564;
+  color: var(--white);
+}
+
+.btn-info {
+  /* Using a complementary blue */
+  background-color: #4e7d92;
+  border-color: #4e7d92;
+  color: var(--white);
+}
+.btn-info:hover,
+.btn-info:focus {
+  background-color: #3e6475;
+  border-color: #3e6475;
+  color: var(--white);
+}
+
+.btn-link {
+  color: var(--signal-violet);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-link:hover {
+  color: var(--signal-violet-dark);
+  text-decoration: underline;
+}
+
+/* Forms */
+.form-control {
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+  border-color: var(--signal-violet);
+  box-shadow: 0 0 0 0.25rem rgba(146, 78, 125, 0.25);
+}
+
+/* Tables */
+.table {
+  border-color: #eee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.table th {
+  background-color: var(--signal-violet);
+  color: var(--white);
+  border-color: var(--signal-violet-dark);
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  background-color: var(--light-bg);
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #eee;
+}
+
+/* Alerts - Keeping default colors for accessibility */
+.alert-danger {
+  background-color: #f8d7da;
+  border-color: #f5c2c7;
+  color: #842029;
+}
+
+/* --- 7. Page-Specific Styles --- */
+.placeholder-section {
+  padding: 2rem;
+  min-height: 300px;
+  background-color: var(--white);
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
