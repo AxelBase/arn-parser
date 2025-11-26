@@ -2,8 +2,9 @@
 	"name": "arn-parser",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "vite dev",
+		"generate-sitemap": "node scripts/generate-sitemap.js",
 		"build": "node scripts/generate-sitemap.js && vite build",
+		"dev": "vite dev",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
 		"prepack": "svelte-kit sync && svelte-package && publint",
