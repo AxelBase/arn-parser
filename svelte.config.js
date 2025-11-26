@@ -5,8 +5,8 @@ const config = {
   preprocess: vitePreprocess(),  // Optional for TS/Svelte; keeps Bootstrap CSS safe
   kit: {
     adapter: adapter({
-      pages: 'build',
-      assets: 'build',  // Ensures static/ (sitemap.xml, robots.txt) copies to output
+      pages: 'docs',
+      assets: 'docs',  // Ensures static/ (sitemap.xml, robots.txt) copies to output
       fallback: '404.html',  // As requested
       precompress: false
     }),
